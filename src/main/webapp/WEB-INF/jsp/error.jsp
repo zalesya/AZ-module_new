@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-    <jsp:include page="navigationBar.jsp"/>
+    <jsp:include page="jspElements/navigationBar.jsp"/>
     <div class="container">
         <br/>
             <h1>Error</h1>

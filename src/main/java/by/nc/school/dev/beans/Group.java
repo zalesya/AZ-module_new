@@ -5,10 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/*@Entity
-@Table(name="group", indexes = {
-        @Index(columnList = "group_number", unique = true)
-})*/
+@Entity
+@Table(name="groups")
 public class Group implements Serializable {
     @Id
     @GeneratedValue

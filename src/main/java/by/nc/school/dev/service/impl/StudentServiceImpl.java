@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Required;
 import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
-
     private StudentRepository studentRepository;
 
     public Student addStudent(Student student) {

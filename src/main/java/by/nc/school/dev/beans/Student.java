@@ -7,25 +7,23 @@ import java.util.HashMap;
 import java.util.List;
 
 @Entity
-@Table(name="students", indexes = {
-        @Index(columnList = "number_record_book", unique = true)
-})
+@Table(name="students")
 public class Student extends User implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id")
     private long id;
-    @Column(name = "course_number")
+    @Column(name = "course_number" , nullable = false)
     private int courseNumber;
-    @Column(name = "average_score")
+    @Column(name = "average_score" , nullable = false)
     private double averageScore;
-    @Column(name = "number_record_book")
+    @Column(name = "number_record_book" , nullable = false, unique = true)
     private long numberRecordBook;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "student_user_general_info"
-            ,joinColumns = @JoinColumn(name = "student_id")
-            ,inverseJoinColumns = @JoinColumn(name = "user_id")
+            name = "student_user",
+            joinColumns = @JoinColumn(name = "user_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "student_id", nullable = false)
     )
     private User user;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -45,15 +43,16 @@ public class Student extends User implements Serializable {
                    HashMap<Subject, List<Integer>> studentIndebtedness, HashMap<Subject, List<Integer>> studentMarks) {
         this.courseNumber = courseNumber;
         this.averageScore = averageScore;
-        this.listStudentSubjectsStudy = new ArrayList<Subject>(listStudentSubjectsStudy);
+        this.listStudentSubjectsStudy = new ArrayList<>(listStudentSubjectsStudy);
         this.numberRecordBook = numberRecordBook;
-        this.studentIndebtedness = new HashMap<Subject, List<Integer>>(studentIndebtedness);
-        this.studentMarks = new HashMap<Subject, List<Integer>>(studentMarks);
+        this.studentIndebtedness = new HashMap<>(studentIndebtedness);
+        this.studentMarks = new HashMap<>(studentMarks);
     }
 
     public Student(String surname, String name, String email, String telephoneNumber, int courseNumber,
                    double averageScore, long numberRecordBook, List<Subject> listStudentSubjectsStudy,
                    HashMap<Subject, List<Integer>> studentIndebtedness, HashMap<Subject, List<Integer>> studentMarks) {
+       // this.user = new User(surname, name, email, telephoneNumber);
         super(surname, name, email, telephoneNumber);
         this.courseNumber = courseNumber;
         this.averageScore = averageScore;
@@ -61,6 +60,15 @@ public class Student extends User implements Serializable {
         this.numberRecordBook = numberRecordBook;
         this.studentIndebtedness = new HashMap<Subject, List<Integer>>(studentIndebtedness);
         this.studentMarks = new HashMap<Subject, List<Integer>>(studentMarks);
+    }
+
+    public Student(String surname, String name, String email, String telephoneNumber, int courseNumber,
+                   double averageScore, long numberRecordBook/*, List<Subject> listStudentSubjectsStudy*/) {
+        super(surname, name, email, telephoneNumber);
+        this.courseNumber = courseNumber;
+        this.averageScore = averageScore;
+        this.numberRecordBook = numberRecordBook;
+        //this.listStudentSubjectsStudy = listStudentSubjectsStudy;
     }
 
     public Student(User user, int courseNumber, double averageScore, long numberRecordBook,

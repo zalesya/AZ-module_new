@@ -20,40 +20,34 @@ public class ViewController {
         return "redirect:" + Pages.VIEWS.LOGIN.PATH_ABSOLUTE;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.STUDENT.PATH)
+    @RequestMapping(method = RequestMethod.GET, value = Pages.VIEWS.STUDENT.PATH)
     public String getStudentPage(Model model) {
         processRequest(model, Pages.VIEWS.STUDENT.VIEW);
         return Pages.VIEWS.STUDENT.VIEW;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.PROFESSOR.PATH)
+    @RequestMapping(method = RequestMethod.GET, value = Pages.VIEWS.PROFESSOR.PATH)
     public String getProfessorPage(Model model) {
         processRequest(model, Pages.VIEWS.PROFESSOR.VIEW);
         return Pages.VIEWS.PROFESSOR.VIEW;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.LOGIN.PATH)
+    @RequestMapping(method = RequestMethod.GET, value = Pages.VIEWS.LOGIN.PATH)
     public String getLoginPage(Model model) {
         processRequest(model, Pages.VIEWS.LOGIN.VIEW);
         return Pages.VIEWS.LOGIN.VIEW;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.REGISTER.PATH)
-    public String getRegisterPage(Model model) {
-        processRequest(model, Pages.VIEWS.REGISTER.VIEW);
-        return Pages.VIEWS.REGISTER.VIEW;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.LOGOUT.PATH)
-    public String getLogoutPage(Model model) {
-        processRequest(model, Pages.VIEWS.LOGOUT.VIEW);
-        return Pages.VIEWS.LOGIN.VIEW;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, path = Pages.VIEWS.ACCOUNT.PATH)
+    @RequestMapping(method = RequestMethod.GET, value = Pages.VIEWS.ACCOUNT.PATH)
     public String getAccountPage(Model model) {
         processRequest(model, Pages.VIEWS.ACCOUNT.VIEW);
         return Pages.VIEWS.ACCOUNT.VIEW;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = Pages.VIEWS.ABOUT.PATH)
+    public String getAboutPage(Model model) {
+        processRequest(model, Pages.VIEWS.ABOUT.VIEW);
+        return Pages.VIEWS.ABOUT.VIEW;
     }
 
     protected void processRequest(Model model, String view) {

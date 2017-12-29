@@ -1,16 +1,38 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 23.12.2017
-  Time: 17:36
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Professor</title>
-</head>
-<body>
+<%@ page import="by.nc.school.dev.web.util.Pages" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-</body>
-</html>
+<head>
+    <link href="<c:url value="/static/css/professorNav.css"/>" type="text/css" rel="stylesheet">
+</head>
+
+<%@include file="jspElements/navigationBar.jsp"%>
+<link href="<c:url value="/static/css/bootstrap.css"/>" rel="stylesheet">
+<link href="<c:url value="/static/css/bootstrap-theme.css"/>" rel="stylesheet">
+<link href="<c:url value="/static/css/style.css"/>" type="text/css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container sidenav-outer">
+    <div class="sidenav">
+        <ul class="nav flex-column" id="professorNav">
+            <li class="nav-item">
+                <a class="nav-link active" href="<%=Pages.USER.ALL_USERS.PATH_ABSOLUTE%>">
+                    <i class="fa fa-users" aria-hidden="true"></i> Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=Pages.STUDENT.ALL_STUDENTS.PATH_ABSOLUTE%>">
+                    <i class="fa fa-bed" aria-hidden="true"></i> Students</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=Pages.PROFESSOR.ALL_PROFESSORS.PATH_ABSOLUTE%>">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i> Professors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=Pages.SUBJECT.ALL_SUBJECTS.PATH_ABSOLUTE%>">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i> Subjects</a>
+            </li>
+        </ul>
+    </div>
+</div>

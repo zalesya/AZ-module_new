@@ -6,28 +6,29 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="users", indexes = {
-        @Index(columnList = "login", unique = true)
-})
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements Serializable {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "user_id")
     private Long id;
-    @Column(name = "login")
+    @Column(name = "login", nullable = false, unique = true)
     private String username;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, unique = true)
     private String password;
-    @Column(name = "role")
+    @Column(name = "role", nullable = false)
     private Role role;
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    @Column(name = "telephone_number")
+    @Column(name = "telephone_number", nullable = false)
     private String telephoneNumber;
+   // @OneToOne(mappedBy = "user")
+  //  private Student student;
 
     public User() {
     }

@@ -27,6 +27,22 @@ public interface SessionAttributes {
     String REGEX_ERROR = "regexError";
     String LOGIN_EXISTS = "loginExists";
     String SUCCESS_ADD_USER = "successAddUser";
-    String ALL_USERS = "getAllUsers";
+    String ALL_USERS = "allUsers";
     String SUCCESS_UPDATE = "successUpdate";
+
+    String ERROR_LOGIN = "errorLogin";
+    String ERROR = "error";
+
+    String STUDENT_COURSE_NUMBER = "courseNumber";
+    String ALL_STUDENTS = "allStudents";
+    String STUDENT_AVERAGE_SCORE = "averageScore";
+    String STUDENT_NUMBER_RECORD_BOOK = "numberRecordBook";
+    String STUDENT_LIST_SUBJECTS_STUDY = "listStudentSubjectsStudy";
+    String SUCCESS_ADD_STUDENT = "successAddStudent";
+
+    String ALL_PROFESSORS = "allProfessors";
+    String PROFESSOR_SCIENCE_DEGREE = "scienceDegree";
+    String PROFESSOR_LIST_SUBJECTS_TEACH = "listProfessorSubjectsTeach";
+    String SUCCESS_ADD_PROFESSOR = "successAddProfessor";
 }
+

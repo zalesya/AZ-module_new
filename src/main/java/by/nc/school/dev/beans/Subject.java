@@ -4,7 +4,6 @@ import by.nc.school.dev.beans.additionalClasses.Curriculum;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,14 +24,14 @@ public class Subject implements Serializable {
     @Column(name = "exam")
     private boolean isExam;
     /*
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "subject_study_plan_list"
-            ,joinColumns = @JoinColumn(name = "subject_id")
-            ,inverseJoinColumns = @JoinColumn(name = "plan_list_id")
+            name = "subject_study_plan_list",
+            joinColumns = @JoinColumn(name = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "plan_list_id")
     )
-    private List<Curriculum> subjectStudyPlanList;
-*/
+    private List<Curriculum> subjectStudyPlanList;*/
+
     public Subject() {
     }
 
@@ -43,7 +42,7 @@ public class Subject implements Serializable {
         this.optionalSubjectHours = optionalSubjectHours;
         this.subjectName = subjectName;
         this.subjectProfessor = subjectProfessor;
-  //      this.subjectStudyPlanList = new ArrayList<Curriculum>(subjectStudyPlanList);
+        //this.subjectStudyPlanList = new ArrayList<Curriculum>(subjectStudyPlanList);
     }
 
     public long getId() {

@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    background: url(/img/background.jpg) center no-repeat;
+    background: url(/static/img/background.jpg) center no-repeat;
     background-size: cover;
 }
 

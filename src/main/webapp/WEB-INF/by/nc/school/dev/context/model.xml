@@ -12,6 +12,7 @@
 
     <bean id="homeModelProvider" class="by.nc.school.dev.web.provider.HomeModelProvider">
         <property name="userRepository" ref="userRepository" />
+        <property name="studentRepository" ref="studentRepository"/>
     </bean>
 
 </beans>

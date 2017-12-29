@@ -11,4 +11,8 @@
         <property name="studentRepository" ref="studentRepository" />
     </bean>
 
+    <bean id="professorService" class="by.nc.school.dev.service.impl.ProfessorServiceImpl">
+        <property name="professorRepository" ref="professorRepository" />
+    </bean>
+
 </beans>

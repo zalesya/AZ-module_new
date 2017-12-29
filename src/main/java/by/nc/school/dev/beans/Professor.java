@@ -5,27 +5,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name="professors")
+@Entity
+@Table(name="professors")
 public class Professor extends User implements Serializable {
     @Id
     @GeneratedValue
-    @Column(name = "professor_id")
+    @Column(name = "id")
     private long id;
-    @Column(name = "science_degree")
+    @Column(name = "science_degree", nullable = false)
     private String scienceDegree;
-/*    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "student_user_general_info"
-            ,joinColumns = @JoinColumn(name = "professor_id")
-            ,inverseJoinColumns = @JoinColumn(name = "user_id")
-    )*/
+            name = "professor_user"
+            ,joinColumns = @JoinColumn(name = "user_id")
+            ,inverseJoinColumns = @JoinColumn(name = "professor_id")
+    )
     private User user;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "professor_subjects_teach"
-            ,joinColumns = @JoinColumn(name = "professor_id")
-            ,inverseJoinColumns = @JoinColumn(name = "subject_id")
+           name = "professor_subjects_teach",
+           joinColumns = @JoinColumn(name = "professor_id"),
+           inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
     private List<Subject> listSubjectsProfessorTeach;
 
@@ -33,14 +33,19 @@ public class Professor extends User implements Serializable {
     }
 
     public Professor(List<Subject> listSubjectsProfessorTeach, String scienceDegree) {
-        this.listSubjectsProfessorTeach = new ArrayList<Subject>(listSubjectsProfessorTeach);
+        this.listSubjectsProfessorTeach = new ArrayList<>(listSubjectsProfessorTeach);
         this.scienceDegree = scienceDegree;
     }
 
     public Professor(String surname, String name, String email, String telephoneNumber,
                      List<Subject> listSubjectsProfessorTeach, String scienceDegree) {
         super(surname, name, email, telephoneNumber);
-        this.listSubjectsProfessorTeach = new ArrayList<Subject>(listSubjectsProfessorTeach);
+        this.listSubjectsProfessorTeach = new ArrayList<>(listSubjectsProfessorTeach);
+        this.scienceDegree = scienceDegree;
+    }
+
+    public Professor(String surname, String name, String email, String telephoneNumber, String scienceDegree) {
+        super(surname, name, email, telephoneNumber);
         this.scienceDegree = scienceDegree;
     }
 

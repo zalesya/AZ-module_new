@@ -22,7 +22,8 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 
     private boolean isIgnoreRequest(HttpServletRequest request) {
         return Pages.VIEWS.LOGIN.PATH_ABSOLUTE.equals(request.getRequestURI())
-               || Pages.VIEWS.LOGIN.PATH_ABSOLUTE.equals(request.getRequestURI())
+               || Pages.USER.LOGIN.PATH_ABSOLUTE.equals(request.getRequestURI())
+               || Pages.USER.REGISTER.PATH_ABSOLUTE.equals(request.getRequestURI())
                || request.getRequestURI().startsWith("/static/");
     }
 

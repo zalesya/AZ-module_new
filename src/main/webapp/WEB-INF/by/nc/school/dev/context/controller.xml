@@ -11,4 +11,12 @@
         <property name="userService" ref="userService" />
     </bean>
 
+    <bean id="studentController" class="by.nc.school.dev.web.controller.StudentController">
+        <property name="studentService" ref="studentService" />
+    </bean>
+
+    <bean id="professorController" class="by.nc.school.dev.web.controller.ProfessorController">
+        <property name="professorService" ref="professorService" />
+    </bean>
+
 </beans>
